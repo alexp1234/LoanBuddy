@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoanBuddy</title>
+
+</head>
+
+
+<body>
+<h2>Predicting loan defaults</h2>
+
+
+<form action="{{ url_for('predict')}}" method="POST">
+
+	<p> Enter Loan Amount</p>
+	<textarea name="loan_amnt" rows="1" cols="50"></textarea>
+
+	<p> Enter Loan Term</p>
+	<textarea name="term" rows="1" cols="50"></textarea>
+
+	<p>Interest Rate</p>
+	<textarea name="int_rate" rows="1" cols="50"></textarea>
+
+	<p>Length of Employment</p>
+	<textarea name="emp_length" rows="1" cols="50"></textarea>
+
+	<p>Home Ownership Status</p>
+	<textarea name="home_ownership" rows="1" cols="50"></textarea>
+
+	<p>Annual Income</p>
+	<textarea name="annual_inc" rows="1" cols="50"></textarea>
+
+	<p> Verification Status</p>
+	<textarea name="verification_status" rows="1" cols="50"></textarea>
+
+	<p>Purpose</p>
+	<textarea name="purpose" rows="1" cols="50"></textarea>
+
+	<p> Debt to income as whole number</p>
+	<textarea name="dti" rows="1" cols="50"></textarea>
+
+	<p>Delinquencies in Two Years</p>
+	<textarea name="delinq_2yrs" rows="1" cols="50"></textarea>
+
+	<p>Fico Range Low</p>
+	<textarea name="fico_range_low" rows="1" cols="50"></textarea>
+
+	<p>Inquiries in Past 6 months</p>
+	<textarea name="inq_last_6mths" rows="1" cols="50"></textarea>
+
+	<p> Months since last delinq</p>
+	<textarea name="mths_since_last_delinq" rows="1" cols="50"></textarea>
+
+	<p> Months since last record</p>
+	<textarea name="mths_since_last_record" rows="1" cols="50"></textarea>
+
+	<p>Open Accounts</p>
+	<textarea name="open_acc" rows="1" cols="50"></textarea>
+
+	<p>Public Records</p>
+	<textarea name="pub_rec" rows="1" cols="50"></textarea>
+
+	<p>Revolving Balance</p>
+	<textarea name="revol_bal" rows="1" cols="50"></textarea>
+
+	<p> Revolving Utilization</p>
+	<textarea name="revol_util" rows="1" cols="50"></textarea>
+
+	<p> Total Accounts</p>
+	<textarea name="total_acc" rows="1" cols="50"></textarea>
+
+	<p> collections 12 months exc med</p>
+	<textarea name="collections_12_mths_ex_med" rows="1" cols="50"></textarea>
+
+	<p>Months since last major derog</p>
+	<textarea name="mths_since_last_major_derog" rows="1" cols="50"></textarea>
+
+	<input type="submit" class="btn-info" value="predict">
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
