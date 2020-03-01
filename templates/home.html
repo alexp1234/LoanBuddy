@@ -1,85 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LoanBuddy</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+<link rel="stylesheet" href="css/custom.css">
+	
+<title>LoanBuddy</title>
+
 
 </head>
 
 
 <body>
-<h2>Predicting loan defaults</h2>
+<h2 id="heading">Predicting loan defaults</h2>
 
 
-<form action="{{ url_for('predict')}}" method="POST">
+<form action="{{ url_for('predict')}}" id="theForm" method="POST" name="loanForm" onsubmit="return validateForm()">
 
+<div class="form-group">
 	<p> Enter Loan Amount</p>
-	<textarea name="loan_amnt" rows="1" cols="50"></textarea>
+	<textarea name="loan_amnt" rows="1" cols="50" class="form-control"  required></textarea>
+</div>
 
+<div class="form-group">
 	<p> Enter Loan Term</p>
-	<textarea name="term" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="term" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p>Interest Rate</p>
-	<textarea name="int_rate" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="int_rate" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p>Length of Employment</p>
-	<textarea name="emp_length" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="emp_length" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p>Home Ownership Status</p>
-	<textarea name="home_ownership" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="home_ownership" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Annual Income</p>
-	<textarea name="annual_inc" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="annual_inc" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p> Verification Status</p>
-	<textarea name="verification_status" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="verification_status" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Purpose</p>
-	<textarea name="purpose" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="purpose" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p> Debt to income as whole number</p>
-	<textarea name="dti" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="dti" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Delinquencies in Two Years</p>
-	<textarea name="delinq_2yrs" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="delinq_2yrs" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Fico Range Low</p>
-	<textarea name="fico_range_low" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="fico_range_low" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Inquiries in Past 6 months</p>
-	<textarea name="inq_last_6mths" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="inq_last_6mths" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p> Months since last delinq</p>
-	<textarea name="mths_since_last_delinq" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="mths_since_last_delinq" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p> Months since last record</p>
-	<textarea name="mths_since_last_record" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="mths_since_last_record" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Open Accounts</p>
-	<textarea name="open_acc" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="open_acc" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Public Records</p>
-	<textarea name="pub_rec" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="pub_rec" rows="1" cols="50" required></textarea>
+</div>
 	<p>Revolving Balance</p>
-	<textarea name="revol_bal" rows="1" cols="50"></textarea>
-
+	<textarea name="revol_bal" rows="1" cols="50" required></textarea>
+<div class="form-group">
 	<p> Revolving Utilization</p>
-	<textarea name="revol_util" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="revol_util" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p> Total Accounts</p>
-	<textarea name="total_acc" rows="1" cols="50"></textarea>
+	<textarea class="form-control" name="total_acc" rows="1" cols="50" required></textarea>
+</div>
 
+<div class="form-group">
 	<p> collections 12 months exc med</p>
-	<textarea name="collections_12_mths_ex_med" rows="1" cols="50"></textarea>
-
+	<textarea class="form-control" name="collections_12_mths_ex_med" rows="1" cols="50" required></textarea>
+</div>
+<div class="form-group">
 	<p>Months since last major derog</p>
-	<textarea name="mths_since_last_major_derog" rows="1" cols="50"></textarea>
-
-	<input type="submit" class="btn-info" value="predict">
+	<textarea class="form-control" name="mths_since_last_major_derog" rows="1" cols="50" required></textarea>
+</div>
+	<button type="submit" class="btn btn-primary" value="predict">Submit</button>
 
 </form>
 
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 
