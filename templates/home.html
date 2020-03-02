@@ -13,99 +13,101 @@
 
 
 <body>
-<h2 id="heading">Predicting loan defaults</h2>
+<h2 id="heading">Enter Loan Information Below</h2>
 
 
 <form action="{{ url_for('predict')}}" id="theForm" method="POST" name="loanForm" onsubmit="return validateForm()">
 
 <div class="form-group">
 	<p> Enter Loan Amount</p>
-	<textarea name="loan_amnt" rows="1" cols="50" class="form-control"  required></textarea>
+	<textarea name="loan_amnt" rows="1" cols="50" class="form-control" placeholder="ex: 35000"  required></textarea>
 </div>
 
 <div class="form-group">
-	<p> Enter Loan Term</p>
-	<textarea class="form-control" name="term" rows="1" cols="50" required></textarea>
+	<p> Enter Loan Term in Months</p>
+	<textarea class="form-control" name="term" rows="1" cols="50" placeholder="i.e. 36" required></textarea>
 </div>
 
 <div class="form-group">
-	<p>Interest Rate</p>
-	<textarea class="form-control" name="int_rate" rows="1" cols="50" required></textarea>
+	<p>Interest Rate as Decimal</p>
+	<textarea class="form-control" name="int_rate" rows="1" cols="50" placeholder="i.e. 0.2 for 20%" required></textarea>
 </div>
 
 <div class="form-group">
-	<p>Length of Employment</p>
-	<textarea class="form-control" name="emp_length" rows="1" cols="50" required></textarea>
+	<p>Length of Employment in years</p>
+	<textarea class="form-control" name="emp_length" rows="1" cols="50" placeholder="i.e. 8" required></textarea>
 </div>
 
 <div class="form-group">
-	<p>Home Ownership Status</p>
-	<textarea class="form-control" name="home_ownership" rows="1" cols="50" required></textarea>
+	<p>Home Ownership Status Code: 0: Rent 1: Mortgage 2: Own</p>
+	<textarea class="form-control" name="home_ownership" rows="1" cols="50" placeholder="2" required></textarea>
 </div>
 <div class="form-group">
 	<p>Annual Income</p>
-	<textarea class="form-control" name="annual_inc" rows="1" cols="50" required></textarea>
+	<textarea class="form-control" name="annual_inc" rows="1" cols="50" placeholder="i.e 55000" required></textarea>
 </div>
 
 <div class="form-group">
-	<p> Verification Status</p>
-	<textarea class="form-control" name="verification_status" rows="1" cols="50" required></textarea>
+	<p> Income Verification Status Code: 0: Unverified 1: Verified</p>
+	<textarea class="form-control" name="verification_status" rows="1" cols="50" placeholder="i.e. 1" required></textarea>
 </div>
 <div class="form-group">
-	<p>Purpose</p>
-	<textarea class="form-control" name="purpose" rows="1" cols="50" required></textarea>
+	<p>Loan Purpose Code: 0: credit_card 1: debt_consolidation 2: major_purchase 3: house 4: vacation 5: Medical 6: Renewable 7: other 8: moving 9: car 10: small business 11: home improvement</p>
+	<textarea class="form-control" name="purpose" rows="1" cols="50" placeholder="i.e. 5" required></textarea>
 </div>
 <div class="form-group">
-	<p> Debt to income as whole number</p>
-	<textarea class="form-control" name="dti" rows="1" cols="50" required></textarea>
+	<p> Debt to income as whole number i.e. 22.2 for 22.2%</p>
+	<textarea class="form-control" name="dti" rows="1" cols="50" placeholder="i.e. 22.2" required></textarea>
 </div>
 <div class="form-group">
-	<p>Delinquencies in Two Years</p>
-	<textarea class="form-control" name="delinq_2yrs" rows="1" cols="50" required></textarea>
+	<p>Number of Delinquencies in Two Years</p>
+	<textarea class="form-control" name="delinq_2yrs" rows="1" cols="50" placeholder="i.e. 2" required></textarea>
 </div>
 <div class="form-group">
-	<p>Fico Range Low</p>
-	<textarea class="form-control" name="fico_range_low" rows="1" cols="50" required></textarea>
+	<p>Fico Score Range Low</p>
+	<textarea class="form-control" name="fico_range_low" rows="1" cols="50" placeholder="i.e. 650" required></textarea>
 </div>
 <div class="form-group">
-	<p>Inquiries in Past 6 months</p>
-	<textarea class="form-control" name="inq_last_6mths" rows="1" cols="50" required></textarea>
+	<p>Number of Inquiries in Past 6 months</p>
+	<textarea class="form-control" name="inq_last_6mths" rows="1" cols="50" placeholder="i.e. 2" required></textarea>
 </div>
 <div class="form-group">
-	<p> Months since last delinq</p>
-	<textarea class="form-control" name="mths_since_last_delinq" rows="1" cols="50" required></textarea>
+	<p> Months since last delinquency</p>
+	<textarea class="form-control" name="mths_since_last_delinq" rows="1" cols="50" placeholder="i.e. 12" required></textarea>
 </div>
 <div class="form-group">
-	<p> Months since last record</p>
-	<textarea class="form-control" name="mths_since_last_record" rows="1" cols="50" required></textarea>
+	<p> Months since last public record</p>
+	<textarea class="form-control" name="mths_since_last_record" rows="1" cols="50" placeholder="i.e. 12" required></textarea>
 </div>
 <div class="form-group">
 	<p>Open Accounts</p>
-	<textarea class="form-control" name="open_acc" rows="1" cols="50" required></textarea>
+	<textarea class="form-control" name="open_acc" rows="1" cols="50" placeholder="i.e. 20" required></textarea>
 </div>
 <div class="form-group">
-	<p>Public Records</p>
-	<textarea class="form-control" name="pub_rec" rows="1" cols="50" required></textarea>
+	<p>Number of Public Records</p>
+	<textarea class="form-control" name="pub_rec" rows="1" cols="50" placeholder="i.e. 2" required></textarea>
 </div>
+<div class="form-group">
 	<p>Revolving Balance</p>
-	<textarea name="revol_bal" rows="1" cols="50" required></textarea>
+	<textarea class="form-control" name="revol_bal" rows="1" cols="50" placeholder="i.e. 20000" required></textarea>
+</div>
 <div class="form-group">
-	<p> Revolving Utilization</p>
-	<textarea class="form-control" name="revol_util" rows="1" cols="50" required></textarea>
+	<p> Revolving Utilization as Decimal</p>
+	<textarea class="form-control" name="revol_util" rows="1" cols="50" placeholder="i.e 0.12" required></textarea>
 </div>
 
 <div class="form-group">
-	<p> Total Accounts</p>
-	<textarea class="form-control" name="total_acc" rows="1" cols="50" required></textarea>
+	<p> Number of Total Accounts</p>
+	<textarea class="form-control" name="total_acc" rows="1" cols="50" placeholder="i.e. 30" required></textarea>
 </div>
 
 <div class="form-group">
-	<p> collections 12 months exc med</p>
-	<textarea class="form-control" name="collections_12_mths_ex_med" rows="1" cols="50" required></textarea>
+	<p>Number of collections 12 months excluding medical</p>
+	<textarea class="form-control" name="collections_12_mths_ex_med" rows="1" cols="50" placeholder="i.e. 4" required></textarea>
 </div>
 <div class="form-group">
-	<p>Months since last major derog</p>
-	<textarea class="form-control" name="mths_since_last_major_derog" rows="1" cols="50" required></textarea>
+	<p>Months since last major derogatory</p>
+	<textarea class="form-control" name="mths_since_last_major_derog" rows="1" cols="50" placeholder="i.e. 12" required></textarea>
 </div>
 	<button type="submit" class="btn btn-primary" value="predict">Submit</button>
 

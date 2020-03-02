@@ -11,10 +11,10 @@
 	<h2>Results</h2>
 <br/>
 <div class="results">
-	{% if prediction == "Good" %}
+	{% if prediction == 1 %}
 	<h2>Good</h2>
 	<p>This loan is predicted to be paid back in full</p>
-	{% elif prediction == "Bad" %}
+	{% elif prediction == 0 %}
 	<h2>Bad</h2>
 	<p>This loan is predicted to default</p>
 	{% endif %}

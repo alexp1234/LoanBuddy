@@ -10,21 +10,21 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
 	names=['loan_amnt', 'term', 'int_rate', 'emp_length', 'home_ownership', 'annual_inc', 'verification_status', 'purpose', 'dti', 'delinq_2yrs', 'fico_range_low', 'inq_last_6mths', 'mths_since_last_delinq', 'mths_since_last_record', 'open_acc', 'pub_rec', 'revol_bal', 'revol_util', 'total_acc', 'collections_12_mths_ex_med', 'mths_since_last_major_derog', 'loan_status' ]
-	dataset=pd.read_csv("data/DTrain.csv", names=names)
+	dataset=pd.read_csv("data/DTrain2.csv", names=names)
 	dataset = dataset.fillna(0)
 	dataset = dataset.iloc[1:]
 	X = dataset.iloc[:, :-1].values
 	y = dataset.iloc[:, 21].values
 
 	from sklearn.model_selection import train_test_split
-	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
 	from sklearn.preprocessing import StandardScaler
 	scaler = StandardScaler()
 	scaler.fit(X_train)
 	X_train = scaler.transform(X_train)
 	X_test = scaler.transform(X_test)
 	from sklearn.neighbors import KNeighborsClassifier
-	classifier = KNeighborsClassifier(n_neighbors=183)
+	classifier = KNeighborsClassifier(n_neighbors=3)
 	classifier.fit(X_train, y_train)
 	y_pred = classifier.predict(X_test)
 
